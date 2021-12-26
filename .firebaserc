@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "tbn-staging"
-  }
+    "default": "tbn-staging",
+    "tbn-staging": "tbn-staging"
+  },
+  "targets": {}
 }

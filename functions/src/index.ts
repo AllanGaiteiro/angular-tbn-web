@@ -8,7 +8,7 @@ admin.initializeApp();
 
 
 // Firebase Functions
-export const bible = functions.https.onRequest(bibleAPI);
-export const migrate = functions.https.onRequest(migrateAPI);
+exports.bible = functions.https.onRequest(bibleAPI);
+exports.migrate = functions.https.onRequest(migrateAPI);
 
 

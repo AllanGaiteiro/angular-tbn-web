@@ -1,7 +1,14 @@
 import * as functions from "firebase-functions";
-import {boockAPI} from "./api/boock.api";
-
+import * as admin from "firebase-admin";
+import {bibleAPI} from "./api/bible.api";
+import {migrateAPI} from "./api/migrate.api";
+admin.initializeApp();
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 
-export const boock = functions.https.onRequest(boockAPI);
+
+// Firebase Functions
+export const bible = functions.https.onRequest(bibleAPI);
+export const migrate = functions.https.onRequest(migrateAPI);
+
+

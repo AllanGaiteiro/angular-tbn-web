@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "tbn-web:build:production",
+            "firebaseProject": "tbn-staging",
+            "firebaseHostingSite": "tbn-staging"
+          }
         }
       }
     }

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tbn-staging": {
+      "hosting": {
+        "tbn-web": [
+          "tbn-staging"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tbn-staging"
+  }
+}

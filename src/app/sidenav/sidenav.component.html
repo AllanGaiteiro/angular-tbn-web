@@ -1,0 +1,32 @@
+<nav id="sidebar">
+  <div class="sidebar-header">
+    <h3>Tabernaculo da Vida</h3>
+  </div>
+
+  <ul class="list-unstyled components">
+    <li class="active">
+      <a routerLink="/">Home</a>
+    </li>
+    <li>
+      <a routerLink="/biblia">Biblia</a>
+    </li>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header style="background-color: #6d7fcc">
+          <mat-panel-title style="color: white">
+            Configurações
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <br />
+        <div >
+          <app-mat-slider [(size)]="fontSizePx" (sizeChange)="setFontSize($event)">
+          </app-mat-slider>
+        </div>
+        <br />
+      </mat-expansion-panel>
+    </mat-accordion>
+    <li>
+      <a href="#">Contact</a>
+    </li>
+  </ul>
+</nav>

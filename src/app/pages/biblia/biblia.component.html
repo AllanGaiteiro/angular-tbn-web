@@ -1,0 +1,75 @@
+<!----->
+  <div id="headerChapter" *ngIf="boock && chapterNumber">
+  <div id="cardSeeChapter">
+    <h1 *ngIf="boock" class="viewLivCap">
+      livro de {{ boock.name }} - cap {{ chapterNumber }}
+    </h1>
+  </div>
+</div>
+  
+<div id="content">
+  <div style="text-align: center">
+    <h1 style="font-size: 3rem; margin-bottom: 20px; margin-top: 20px">
+      Biblia Sagrada
+    </h1>
+
+    <div class="d-flex">
+      <div *ngIf="boocks" class="input-group mb-3" style="width: 400px">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Livro</label>
+        </div>
+
+        <select
+          class="custom-select"
+          name="selLiv"
+          [(ngModel)]="boock"
+          (ngModelChange)="getChapters()"
+        >
+          <option value="Selecionar"></option>
+          <option *ngFor="let b of boocks" [value]="b" [ngValue]="b">
+            {{ b.name }}
+          </option>
+        </select>
+      </div>
+
+      <div *ngIf="chapters?.length && boock" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Capitulos</label
+          >
+        </div>
+
+        <select
+          class="custom-select"
+          name="selCap"
+          [(ngModel)]="chapterNumber"
+        >
+          <option value="Selecionar">Selecionar</option>
+          <option *ngFor="let c of chapters" [value]="c" [ngValue]="c">
+            {{ c }}
+          </option>
+        </select>
+      </div>
+      <!----->
+    </div>
+  </div>
+  <hr />
+
+  <table *ngIf="versicles && chapterNumber" class="table table-striped">
+    <thead></thead>
+    <tbody>
+      <tr
+        *ngFor="let v of versicles[chapterNumber]"
+        id="vers-{{ v.verseNumber }}"
+      >
+        <th scope="row">
+          <p>
+            <span style="color: red">{{  v.verseNumber  }}</span>
+            {{ v.verse }}
+          </p>
+        </th>
+      </tr>
+    </tbody>
+  </table>
+  <!----->
+</div>

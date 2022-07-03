@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { PagesModule } from './pages/pages.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -17,6 +18,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
+    PagesModule
+  ],exports:[
+    BrowserModule,
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

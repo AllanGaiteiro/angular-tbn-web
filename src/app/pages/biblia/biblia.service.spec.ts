@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { VersicleService } from './versicle.service';
+import { BibliaService } from './biblia.service';
 
-describe('VersicleService', () => {
-  let service: VersicleService;
+describe('BibliaService', () => {
+  let service: BibliaService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(VersicleService);
+    service = TestBed.inject(BibliaService);
   });
 
   it('should be created', () => {

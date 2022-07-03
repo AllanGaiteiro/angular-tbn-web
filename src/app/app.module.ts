@@ -8,9 +8,20 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { PagesModule } from './pages/pages.module';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatSliderComponent } from './mat-slider/mat-slider.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularMaterialModule } from './angular.material.module';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidenavComponent,
+    HeaderComponent,
+    MatSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,9 +29,25 @@ import { PagesModule } from './pages/pages.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule,
-    PagesModule
-  ],exports:[
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    //NgbModule,
+    FormsModule,
+    //TooltipModule.forRoot(),
+    HttpClientModule,
+    AngularMaterialModule,
+    PagesModule,
+  ], exports: [
     BrowserModule,
+    MatFormFieldModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    //NgbModule,
+    FormsModule,
+    // TooltipModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    AngularMaterialModule,
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

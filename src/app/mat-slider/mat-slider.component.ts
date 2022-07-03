@@ -6,16 +6,16 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./mat-slider.component.css']
 })
 export class MatSliderComponent implements OnInit {
-  @Input() size: number | string = 50;
+  @Input() size?: number | string;
   @Output() sizeChange: EventEmitter<number> = new EventEmitter<number>();
 
-  sliderValue: number = 50;
+  sliderValue?: number;
   constructor() {
     //
   }
 
   ngOnInit(): void {
-    //
+    this.sliderValue = 50;
   }
 
 

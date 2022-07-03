@@ -9,10 +9,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
   // @ViewChild('sidenav') public sidenav: MatSidenav;
-
-  public fontSizePx: number = 50;
+  public fontSizePx?: number;
   public paragraph?: NodeListOf<HTMLParagraphElement>;
-  public reason: string = '';
+  public reason?: string;
   public expandedMenu = false;
   public shouldRun = true;
   public panelOpenState = false;
@@ -21,6 +20,7 @@ export class SidenavComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.fontSizePx = 60;
     this.setFontSize(this.fontSizePx);
   }
 

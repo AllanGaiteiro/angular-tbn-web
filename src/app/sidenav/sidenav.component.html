@@ -18,7 +18,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <div >
+        <div  *ngIf="fontSizePx">
           <app-mat-slider [(size)]="fontSizePx" (sizeChange)="setFontSize($event)">
           </app-mat-slider>
         </div>

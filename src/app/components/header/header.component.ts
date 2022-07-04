@@ -6,21 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  content: HTMLElement | null;
-  headerChapter: HTMLElement | null;
-  sidebar: HTMLElement | null;
-  headerContent: HTMLElement | null;
-  public reason: string = '';
+  content?: HTMLElement;
+  headerChapter?: HTMLElement;
+  sidebar?: HTMLElement;
+  headerContent?: HTMLElement;
+
+  public fontSizeP: number;
+  public paragraph: NodeListOf<HTMLParagraphElement>; // HTMLCollectionOf<HTMLParagraphElement>;
+  public reason?: string;
   public matIconMenu: 'keyboard_return' | 'keyboard_tab' = 'keyboard_return';
   public headerButton: 'visibility' | 'visibility_off' = 'visibility';
   public expandedMenu = false;
   public shouldRun = true;
   public panelOpenState = false;
   constructor() {
-    this.sidebar = document.getElementById('sidebar');
-    this.headerChapter = document.getElementById('headerChapter');
-    this.content = document.getElementById('content');
-    this.headerContent = document.getElementById('headerContent');
+    this.paragraph = document.querySelectorAll('p');
+    this.fontSizeP = 50;
   }
   ngOnInit(): void {
     //
@@ -37,30 +38,43 @@ export class HeaderComponent implements OnInit {
   }
 
   public moveContent(): void {
-
-    if (!!this.content && !!this.sidebar && !!this.headerContent) {
-      if (this.content.style.width === '100%') {
-        if (!!this.headerChapter) {
-          this.headerChapter.style.width = '80%';
-          this.headerChapter.style.left = '20%';
+    const sidebar = document.getElementById('sidebar');
+    const headerChapter = document.getElementById('headerChapter');
+    const content = document.getElementById('content');
+    const headerContent = document.getElementById('headerContent');
+    if (!!content && !!sidebar && !!headerContent) {
+      if (content.style.width === '100%') {
+        if (!!headerChapter) {
+          headerChapter.style.width = '80%';
+          headerChapter.style.left = '20%';
         }
-        this.content.style.width = '80%';
-        this.content.style.marginLeft = '20%';
-        this.sidebar.style.left = '0px';
-        this.headerContent.style.left = '20%';
+        content.style.width = '80%';
+        content.style.marginLeft = '20%';
+        sidebar.style.left = '0px';
+        headerContent.style.left = '20%';
         this.matIconMenu = 'keyboard_return';
       } else {
-        if (!!this.headerChapter) {
-          this.headerChapter.style.width = '100%';
-          this.headerChapter.style.left = '0%';
+        if (!!headerChapter) {
+          headerChapter.style.width = '100%';
+          headerChapter.style.left = '0%';
         }
-        this.content.style.width = '100%';
-        this.content.style.marginLeft = '0%';
-        this.sidebar.style.left = '-20%';
-        this.headerContent.style.left = '0%';
+        content.style.width = '100%';
+        content.style.marginLeft = '0%';
+        sidebar.style.left = '-20%';
+        headerContent.style.left = '0%';
         this.matIconMenu = 'keyboard_tab';
       }
     }
   }
 
+
+  public settingFont = (tipo: '+' | '=' | '-'): void => {
+    this.fontSizeP =
+      tipo !== '='
+        ? tipo === '+'
+          ? this.fontSizeP + 1
+          : this.fontSizeP - 1
+        : this.fontSizeP;
+    this.paragraph.forEach((p) => (p.style.fontSize = `${this.fontSizeP}px`));
+  };
 }

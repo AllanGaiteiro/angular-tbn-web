@@ -9,23 +9,22 @@ export class MatSliderComponent implements OnInit {
   @Input() size?: number | string;
   @Output() sizeChange: EventEmitter<number> = new EventEmitter<number>();
 
-  sliderValue?: number = 50;
+  sliderValue?: number;
   constructor() {
     //
   }
 
   ngOnInit(): void {
-    console.log('teste ',this.sliderValue)
+    this.sliderValue = 50;
   }
 
 
   valueLabel(value: number): number {
 
-    return value ?? 0;
+    return value;
   }
   setSize(event: any): void {
-    console.log(event.value)
-    if (event?.value) {
+    if (event.value) {
       this.sizeChange?.emit(event.value);
     }
   }
